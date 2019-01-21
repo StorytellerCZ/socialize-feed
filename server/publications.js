@@ -49,7 +49,7 @@ const genericChildren = [
     },
 ];
 
-publishComposite('socialize.feed.posts', function publishFeedPosts(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
+publishComposite('socialize.feed.posts', function(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
     check(userId, String);
     check(options, optionsArgumentCheck);
 
@@ -71,7 +71,7 @@ publishComposite('socialize.feed.posts', function publishFeedPosts(userId, optio
     return this.ready();
 });
 
-publishComposite('socialize.feed.postsByOwner', function publishPostsByOwner(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
+publishComposite('socialize.feed.postsByOwner', function(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
     check(userId, String);
     check(options, optionsArgumentCheck);
 
@@ -100,7 +100,7 @@ if (Package['socialize:friendships']) {
             return FriendsCollection.find({ userId: this.userId, friendId: post.linkedObjectId });
         },
     };
-    publishComposite('socialize.feed.friendsPosts', function publishFriendPosts(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
+    publishComposite('socialize.feed.friendsPosts', function(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
         check(userId, String);
         check(options, optionsArgumentCheck);
 
@@ -125,7 +125,7 @@ if (Package['socialize:friendships']) {
         return this.ready();
     });
 
-    publishComposite('socialize.feed.friendsPostsToOwner', function publishFriendPostsToOwner(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
+    publishComposite('socialize.feed.friendsPostsToOwner', function(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
         check(userId, String);
         check(options, optionsArgumentCheck);
 
@@ -150,7 +150,7 @@ if (Package['socialize:friendships']) {
         return this.ready();
     });
 
-    publishComposite('socialize.feed.ownersPostsToFriends', function publishOwnersPostsToFriends(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
+    publishComposite('socialize.feed.ownersPostsToFriends', function(userId, options = { limit: 10, sort: { createdAt: -1 } }) {
         check(userId, String);
         check(options, optionsArgumentCheck);
 
