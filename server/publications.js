@@ -113,8 +113,8 @@ if (Package['socialize:friendships']) {
 
         if (userToPublish.isSelf(currentUser) || (!currentUser.blocksUser(userToPublish) && !userToPublish.blocksUser(currentUser))) {
             return {
-                find() {
-                    return userToPublish.feed().friendsPosts(options);
+                async find() {
+                    return await userToPublish.feed().friendsPostsAsync(options);
                 },
                 children: [
                     ...genericChildren,
@@ -138,8 +138,8 @@ if (Package['socialize:friendships']) {
 
         if (userToPublish.isSelf(currentUser) || (!currentUser.blocksUser(userToPublish) && !userToPublish.blocksUser(currentUser))) {
             return {
-                find() {
-                    return userToPublish.feed().friendsPostsToOwner(options);
+                async find() {
+                    return userToPublish.feed().friendsPostsToOwnerAsync(options);
                 },
                 children: [
                     ...genericChildren,
@@ -163,8 +163,8 @@ if (Package['socialize:friendships']) {
 
         if (userToPublish.isSelf(currentUser) || (!currentUser.blocksUser(userToPublish) && !userToPublish.blocksUser(currentUser))) {
             return {
-                find() {
-                    return userToPublish.feed().ownersPostsToFriends(options);
+                async find() {
+                    return userToPublish.feed().ownersPostsToFriendsAsync(options);
                 },
                 children: [
                     ...genericChildren,
