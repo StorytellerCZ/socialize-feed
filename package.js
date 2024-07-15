@@ -7,7 +7,7 @@ Package.describe({
 });
 
 Package.onUse(function _(api) {
-    api.versionsFrom(['2.8.1', '3.0-rc.0']);
+    api.versionsFrom(['2.8.1', '3.0']);
 
     api.use([
         'check',
