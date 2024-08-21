@@ -23,7 +23,7 @@ export const extendFeedForFriends = ({ Meteor, Feed, PostsCollection }) => {
             return undefined;
         },
         async friendsPostsAsync(options = {}) {
-            const currentUser = await Meteor.user();
+            const currentUser = await Meteor.userAsync();
             if (currentUser) {
                 const friends = await currentUser.friends().fetchAsync();
                 const friendIds = friends.map(friend => friend.friendId);
@@ -47,7 +47,7 @@ export const extendFeedForFriends = ({ Meteor, Feed, PostsCollection }) => {
             return undefined;
         },
         async friendsPostsToOwnerAsync(options = {}) {
-            const currentUser = await Meteor.user();
+            const currentUser = await Meteor.userAsync();
             if (currentUser) {
                 const friends = await currentUser.friends().fetchAsync();
                 const friendIds = friends.map(friend => friend.friendId);
@@ -71,7 +71,7 @@ export const extendFeedForFriends = ({ Meteor, Feed, PostsCollection }) => {
             return undefined;
         },
         async ownersPostsToFriendsAsync(options = {}) {
-            const currentUser = await Meteor.user();
+            const currentUser = await Meteor.userAsync();
             if (currentUser) {
                 const friends = await currentUser.friends().fetchAsync();
                 const friendIds = friends.map(friend => friend.friendId);
